@@ -1,0 +1,120 @@
+.root {
+  padding: 16px;
+  border-radius: 12px;
+  background-color: #fbfbfb;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.submitButton {
+  // clear default styles
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  outline: none;
+  font-size: 16px;
+  font-family: inherit;
+
+  // styles
+  background-color: #222;
+  color: white;
+  border-radius: 8px;
+  padding: 8px 16px;
+  opacity: 1;
+  transition: background-color 100ms ease-in-out, color 100ms ease-in-out,
+    opacity 200ms ease-in-out;
+
+  &:hover {
+    background-color: #333;
+  }
+
+  &:active {
+    background-color: #444;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: default;
+  }
+}
+
+.checkbox {
+  --size: 24px;
+  // circle that turns apple blue when checked
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background-color: white;
+  outline: none;
+  cursor: pointer;
+  opacity: 1;
+  transition: border-color 100ms ease-in-out, border-width 100ms ease-in-out,
+    opacity 200ms ease-in-out;
+
+  &:checked {
+    // background-color: #222;
+    border-color: #222;
+    border-width: 3px;
+
+    // animated strike through text when checked
+    & + .titleContainer {
+      & > .titleInput {
+        opacity: 0.5;
+      }
+
+      & > .strike {
+        opacity: 0.5;
+        width: calc(100% + var(--overlap) * 2);
+      }
+    }
+  }
+
+  // disabled checkbox
+  &:disabled {
+    cursor: default;
+    opacity: 0;
+  }
+}
+
+.titleContainer {
+  position: relative;
+  flex-grow: 1;
+}
+
+.titleInput {
+  opacity: 1;
+  transition: opacity 100ms ease-in-out;
+  border: none;
+  font-size: 16px;
+  font-family: inherit;
+  background-color: transparent;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.strike {
+  --overlap: 6px;
+  opacity: 0;
+  width: 0;
+  height: 2px;
+  border-radius: 4px;
+  background-color: #222;
+  transition: width 100ms ease-in-out, opacity 100ms ease-in-out;
+  position: absolute;
+  left: calc(-1 * var(--overlap));
+  top: 50%;
+  transform: translateY(-50%);
+}

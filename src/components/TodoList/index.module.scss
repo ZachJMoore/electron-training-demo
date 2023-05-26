@@ -1,0 +1,33 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+}
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 8px;
+  overflow-y: auto;
+  // reverse order of list items
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.listTitle {
+  font-size: 21px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.noTodos {
+  font-size: 16px;
+  padding: 16px;
+  border-radius: 12px;
+  border: 2px dashed #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.25;
+}
